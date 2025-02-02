@@ -9,6 +9,7 @@ class MaxNumber:
            self.list.append(x)
       print(self.list)
     def max_Element(self):
+        #  return max(self.list)
          maxNum=self.list[0]
          for i in range (len(self.list)):
              if self.list[i] > maxNum:

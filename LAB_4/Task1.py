@@ -1,5 +1,3 @@
-# Basic Singly Linked List Implementation
-# Insertion at the Beginning, Middle, and End
 class Node:
     def __init__(self,data):
         self.data=data
@@ -7,78 +5,87 @@ class Node:
 class SinglyLinkedList:
     def __init__(self):
         self.head=None
-    def append(self,data):
+        self.tail=None
+        # Apending Nodes
+    def appending(self,data):
         """Appened a new node at the end of the list."""
         node=Node(data)
-        if not self.head:
-            self.head= node
+        if self.head is None:
+            self.head=node
+            self.tail=node
         else:
-            current=self.head
-            while current.next:
-                current=current.next
-            current.next=node
+            self.tail.next=node
+            self.tail=node
+    # Displaying Nodes
     def display(self):
-        """Print all the Elements of the list."""        
         current=self.head
         while current:
-            print(current.data,end="->")
+            print(current.data, end=" -> ")
             current=current.next
         print("None")
-    def insert_at_beginning(self, data):
-        """Insert a node at the beginning of the linked list."""
-        node=Node(data)
-        node.next=self.head
-        self.head=node
-    def insert_at_position(self, data, pos):
-        """Insert at a spaecific node."""
-        node=Node(data)
+    # size of the Nodes
+    def Size(self):
+        count=0
         current=self.head
-        for _ in range(pos - 1):
-            if current.next is None:
-                break
-            current = current.next
-        node.next = current.next
-        current.next = node   
-        # Deletion of Nodes
-    def delete(self, data):
-        """Delete a node by value."""
-        current = self.head
-        prev = None
         while current:
-            if current.data == data:
-                if prev:
-                    prev.next = current.next
-                else:
-                    self.head = current.next
-                return
-            prev = current
-            current = current.next   
-    def search(self, data):
-        """Search for an element in the linked list."""
-        current = self.head
+            count+=1
+            current=current.next
+        print("Size: ",count)
+    # Searching Node
+    def Searching(self,data):
+        current=self.head
         while current:
-            if current.data == data:
+            if current.data==data:
+                print(data," is found.")
                 return True
-            current = current.next
-        return False
-    def reverse(self):
-        """Reverse the linked list."""
-        prev = None
-        current = self.head
+            current=current.next
+        print(data," is not found.")
+        return False 
+    # deleting nodes
+    def Deletion(self,data):  #let say we have 10,20,30
+        current=self.head
+        prev=None
         while current:
-            next_node = current.next
-            current.next = prev
-            prev = current
-            current = next_node
-        self.head = prev
-sll=SinglyLinkedList()
-sll.append(10)
-sll.append(20)
-sll.append(30)
-sll.insert_at_beginning(5)
-sll.insert_at_position(15, 2)
-sll.delete(20) 
-print(sll.search(15))  # True
-print(sll.search(100))  # False
-sll.reverse()
-sll.display()
+         if current.data==data: #if the value match then
+            if prev:             #since prev is true
+                prev.next=current.next #it updates the previous which points the next node 30 (delet the node 20)
+            else:
+                self.head=current.next
+            return
+         prev=current #if the value not found pre=10 and current=20
+         current=current.next 
+        print(f"{data} not found in the list.")
+        
+s=SinglyLinkedList()
+s.appending(23)
+s.appending(24)
+s.appending(25)
+s.Size()
+s.display()
+s.Searching(24)
+s.Searching(26)
+s.Deletion(24)
+s.display()
+
+
+
+
+# class SinglyLinkedList:
+#     def delete(self, data):
+#         """Delete a node by value."""
+#         current = self.head
+#         prev = None
+
+#         while current:
+#             if current.data == data:
+#                 if prev:
+#                     prev.next = current.next
+#                 else:
+#                     self.head = current.next
+#                 return
+#             prev = current
+#             current = current.next
+
+# # Example Usage
+# sll.delete(20)  # Deletes 20 from the list
+# sll.display()

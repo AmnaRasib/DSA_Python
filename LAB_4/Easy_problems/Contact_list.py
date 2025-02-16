@@ -38,8 +38,6 @@ class ContactList:
             else:
                 print(f"{current.phone} not found.")
             current=current.next
-        
-
 c=ContactList()
 c.Appending("Ali","0324615262")
 c.Appending("Ahmed","012234566")

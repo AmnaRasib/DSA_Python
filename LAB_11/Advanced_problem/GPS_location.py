@@ -1,14 +1,14 @@
-def Binary_Search(arr,patient_id):
+def Binary_Search(arr,gps):
     size=len(arr)-1
     left=0
     right=size
     while left<=right:
         mid=(left+right)//2
-        if arr[mid]==patient_id:
+        if arr[mid]==gps:
             return mid
-        elif arr[mid]<patient_id:
+        elif arr[mid]<gps:
             left=mid+1
-        elif arr[mid]>patient_id:
+        elif arr[mid]>gps:
             right=mid-1
     return None
 # Example usage:

@@ -39,8 +39,9 @@ def delete(root, key):
         root.left = delete(root.left, key)
     elif key > root.data:
         root.right = delete(root.right, key)
+        # if the node has two child
     else:
-        if not root.left:
+        if not root.left:    
             return root.right
         elif not root.right:
             return root.left

@@ -1,0 +1,8 @@
+Name: Amna, ID: 12, Score: 90
+Name: Ali, ID: 13, Score: 80
+Name: Aliyar, ID: 34, Score: 70
+Name: Amna , ID: 12, Score: 90
+Name: Ali, ID: 13, Score: 80
+Name: Amna, ID: 34, Score: 80
+Name: Fatima, ID: 13, Score: 90
+Name: Ali, ID: 25, Score: 70

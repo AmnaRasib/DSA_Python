@@ -4,6 +4,7 @@ class patientNode:
         self.name=name
         self.ID=ID
         self.next=None
+        self.prev=None
 class PatientQueue:
     def __init__(self):
         self.head=None
@@ -15,6 +16,7 @@ class PatientQueue:
             self.tail=node
         else:
             self.tail.next=node
+            node.prev=self.tail
             self.tail=node
     def deQueue(self):
         if self.head is None:

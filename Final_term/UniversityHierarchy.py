@@ -57,9 +57,6 @@ def show_recent_students(N):
     for student in reversed(review_stack[-N:]):
         print(student.name)
 
-# ------------------------------
-# Example Usage
-# ------------------------------
 
 # Create Root Department
 root = insert(None, "University")
